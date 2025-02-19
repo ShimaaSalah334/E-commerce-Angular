@@ -17,13 +17,12 @@
   .owl-item {
     width: auto !important;
   }
-  .owl-theme[_ngcontent-ng-c2165279935] {
+
+  .owl-theme {
     display: flex !important;
     align-items: center;
     justify-content: space-between;
     position: relative;
-  }
-  .owl-theme {
     .owl-nav {
       display: flex;
       justify-content: space-between;
@@ -65,12 +64,16 @@
   }
 }
 
-.signup .slider {
+.signup,
+.login {
   .owl-theme {
     position: relative;
+    .owl-item {
+      position: relative;
+    }
     .owl-dots {
       position: absolute;
-      bottom: 20px;
+      bottom: 50px;
       left: 50%;
       transform: translatex(-50%);
       -webkit-transform: translatex(-50%);
@@ -79,14 +82,14 @@
       -o-transform: translatex(-50%);
       .owl-dot.active {
         span {
-          background-color: #ffc831;
+          background-color: #fdbe11;
         }
       }
       .owl-dot {
         span {
-          background-color: #ffda64;
+          background-color: #fdd758;
           &:hover {
-            background-color: #ffc831;
+            background-color: #fdbe11;
           }
         }
       }

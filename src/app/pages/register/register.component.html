@@ -1,4 +1,4 @@
-<section class="signup py-16 bg-primary-400">
+<section class="signup py-16 bg-gray-250">
   <div class="container">
     @if (errorMessage!='') {
     <div
@@ -38,17 +38,23 @@
       </button>
     </div>
     }
-    <div class="grid grid-cols-2 w-3/4 mx-auto bg-white shadow-xl rounded-3xl">
+    <div class="grid grid-cols-2 w-3/4 mx-auto bg-white shadow-2xl rounded-3xl">
       <div class="register-form flex flex-col justify-center py-5 px-8">
-        <h2 class="font-semibold text-xl text-black-01 mb-1">
-          Welcome to Your New Shopping Experience!
-        </h2>
-        <p class="text-sm text-gray-400 mb-5 text-start">
-          Sign up to enjoy a seamless shopping experience, tailored just for
-          you.
-        </p>
+        <div class="title mb-11">
+          <h2 class="font-semibold uppercase text-xl text-black-01 mb-4">
+            <i
+              class="fa-solid fa-right-to-bracket text-primary-500 text-2xl me-3"
+            ></i>
+            Sign Up
+          </h2>
+          <p class="text-sm text-gray-400 text-start">
+            Sign up to enjoy a seamless shopping experience, tailored just for
+            you.
+          </p>
+        </div>
+
         <form [formGroup]="registerForm" (ngSubmit)="submit()">
-          <div class="relative w-11/12 mx-auto mb-4">
+          <div class="input-wrapper relative w-11/12 mx-auto mb-4">
             <input
               type="text"
               id="name"
@@ -61,38 +67,38 @@
               class="absolute text-sm text-gray-650 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-black-01 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
               ><i class="fa-solid fa-user-pen me-1"></i> Name</label
             >
-            @let nameControl=registerForm.controls['name'];
-            @if(nameControl.errors&& nameControl.touched){
-            <div
-              class="flex ps-2 pt-3 pb-4 mb-4 text-sm text-red-800 rounded-lg dark:text-red-400"
-              role="alert"
-            >
-              <svg
-                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                />
-              </svg>
-              <span class="sr-only">Danger</span>
-              <div>
-                <ul>
-                  @if(nameControl.hasError('required')){
-                  <li>Name is required. Please enter your name.</li>
-
-                  } @if(nameControl.hasError('minlength')){
-                  <li>Name must be at least 3 characters long.</li>
-
-                  }
-                </ul>
-              </div>
-            </div>
-            }
           </div>
+          @let nameControl=registerForm.controls['name'];
+          @if(nameControl.errors&& nameControl.touched){
+          <div
+            class="flex ps-2 pt-3 pb-4 mb-4 text-sm text-red-800 rounded-lg dark:text-red-400"
+            role="alert"
+          >
+            <svg
+              class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul>
+                @if(nameControl.hasError('required')){
+                <li>Name is required. Please enter your name.</li>
+
+                } @if(nameControl.hasError('minlength')){
+                <li>Name must be at least 3 characters long.</li>
+
+                }
+              </ul>
+            </div>
+          </div>
+          }
           <div class="relative w-11/12 mx-auto mb-4">
             <input
               type="email"
@@ -107,44 +113,44 @@
               ><i class="fa-solid fa-envelope-circle-check me-1"></i>
               Email</label
             >
-            @let emailControl=registerForm.controls['email'];
-            @if(emailControl.errors&& emailControl.touched){
-            <div
-              class="flex ps-2 pt-3 pb-4 mb-4 text-sm text-red-800 rounded-lg dark:text-red-400"
-              role="alert"
-            >
-              <svg
-                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                />
-              </svg>
-              <span class="sr-only">Danger</span>
-              <div>
-                <ul>
-                  @if(emailControl.hasError('required')){
-                  <li>Email is required. Please enter your email address.</li>
-
-                  } @if(emailControl.hasError('pattern')){
-                  <li>
-                    Please enter a valid email address (e.g.,
-                    example&#64;domain.com).
-                  </li>
-
-                  }
-                </ul>
-              </div>
-            </div>
-            }
           </div>
+          @let emailControl=registerForm.controls['email'];
+          @if(emailControl.errors&& emailControl.touched){
+          <div
+            class="flex ps-2 pt-3 pb-4 mb-4 text-sm text-red-800 rounded-lg dark:text-red-400"
+            role="alert"
+          >
+            <svg
+              class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul>
+                @if(emailControl.hasError('required')){
+                <li>Email is required. Please enter your email address.</li>
+
+                } @if(emailControl.hasError('pattern')){
+                <li>
+                  Please enter a valid email address (e.g.,
+                  example&#64;domain.com).
+                </li>
+
+                }
+              </ul>
+            </div>
+          </div>
+          }
           <div class="relative w-11/12 mx-auto mb-4">
             <div
-              class="absolute flex items-center text-[18px] inset-y-0 end-2"
+              class="absolute flex items-center text-[18px] inset-y-0 end-2 cursor-pointer"
               (click)="togglePasswordVisibility()"
             >
               @if(showPassword){
@@ -204,7 +210,7 @@
           }
           <div class="relative w-11/12 mx-auto mb-4">
             <div
-              class="absolute flex items-center text-[18px] inset-y-0 end-2"
+              class="absolute flex items-center text-[18px] inset-y-0 end-2 cursor-pointer"
               (click)="toggleConfirmPassVisibility()"
             >
               @if(showConfirmPassword){
@@ -277,7 +283,7 @@
             </div>
           </div>
           }
-          <div class="relative w-11/12 mx-auto mb-4">
+          <div class="relative w-11/12 mx-auto mb-8">
             <input
               type="tel"
               id="phone"
@@ -290,43 +296,43 @@
               class="absolute text-sm text-gray-650 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] start-2.5 peer-focus:text-black-01 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
               ><i class="fa-solid fa-phone me-1"></i> Phone</label
             >
-            @let phoneControl=registerForm.controls['phone'];
-            @if(phoneControl.errors&& phoneControl.touched){
-            <div
-              class="flex ps-2 pt-3 pb-4 mb-4 text-sm text-red-800 rounded-lg dark:text-red-400"
-              role="alert"
-            >
-              <svg
-                class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
-                />
-              </svg>
-              <span class="sr-only">Danger</span>
-              <div>
-                <ul>
-                  @if(phoneControl.hasError('required')){
-                  <li>
-                    Phone number is required. Please enter your phone number.
-                  </li>
-
-                  } @if(phoneControl.hasError('pattern')){
-                  <li>
-                    Please enter a valid Egyptian phone number (e.g.,
-                    01012345678).
-                  </li>
-
-                  }
-                </ul>
-              </div>
-            </div>
-            }
           </div>
+          @let phoneControl=registerForm.controls['phone'];
+          @if(phoneControl.errors&& phoneControl.touched){
+          <div
+            class="flex ps-2 pt-3 pb-4 mb-4 text-sm text-red-800 rounded-lg dark:text-red-400"
+            role="alert"
+          >
+            <svg
+              class="shrink-0 inline w-4 h-4 me-3 mt-[2px]"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            <span class="sr-only">Danger</span>
+            <div>
+              <ul>
+                @if(phoneControl.hasError('required')){
+                <li>
+                  Phone number is required. Please enter your phone number.
+                </li>
+
+                } @if(phoneControl.hasError('pattern')){
+                <li>
+                  Please enter a valid Egyptian phone number (e.g.,
+                  01012345678).
+                </li>
+
+                }
+              </ul>
+            </div>
+          </div>
+          }
           <button
             type="submit"
             class="block mx-auto w-11/12 text-black-01 disabled:bg-primary-400 bg-primary-400 hover:bg-primary-500 transition-all duration-300 font-medium px-5 py-2.5"
@@ -340,42 +346,66 @@
       </div>
       <div class="slider p-1">
         <owl-carousel-o [options]="customOptions">
-          <ng-template carouselSlide
-            ><img
-              src="images/1.jpeg"
+          <ng-template carouselSlide>
+            <img
+              src="images/11.jpeg"
+              class="w-full h-full rounded-3xl"
               alt=""
-              class="w-full rounded-3xl h-[500px] object-cover"
-          /></ng-template>
-          <ng-template carouselSlide
-            ><img
-              src="images/2.jpeg"
+            />
+            <p
+              class="text-xl font-semibold text-gray-250 text-center absolute top-20 end-4 w-1/2"
+            >
+              Trendy, affordable, and just for you!
+            </p>
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="images/22.jpeg"
+              class="w-full h-full rounded-3xl"
               alt=""
-              class="w-full h-[500px] object-cover"
-          /></ng-template>
-          <ng-template carouselSlide
-            ><img
-              src="images/3.jpeg"
+            />
+            <p
+              class="text-xl font-semibold text-black-01 text-center absolute top-20 start-4 w-1/2"
+            >
+              Everything you need, all in one place!
+            </p>
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="images/55.jpeg"
+              class="w-full h-full rounded-3xl"
               alt=""
-              class="w-full h-[500px] object-cover"
-          /></ng-template>
-          <ng-template carouselSlide
-            ><img
-              src="images/4.jpeg"
+            />
+            <p
+              class="text-xl font-semibold text-black-01 text-center absolute top-32 end-4 w-1/2"
+            >
+              Why pay more? Shop smarter!
+            </p>
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="images/33.jpeg"
+              class="w-full h-full rounded-3xl"
               alt=""
-              class="w-full h-[500px] object-cover"
-          /></ng-template>
-          <ng-template carouselSlide
-            ><img
-              src="images/5.jpeg"
+            />
+            <p
+              class="text-xl font-semibold text-black-01 text-center absolute top-10 end-4 w-1/2"
+            >
+              Your perfect find is just a click away!
+            </p>
+          </ng-template>
+          <ng-template carouselSlide>
+            <img
+              src="images/44.jpeg"
+              class="w-full h-full rounded-3xl"
               alt=""
-              class="w-full h-[500px] object-cover"
-          /></ng-template>
-          <ng-template carouselSlide
-            ><img
-              src="images/6.jpeg"
-              alt=""
-              class="w-full h-[500px] object-cover"
-          /></ng-template>
+            />
+            <p
+              class="text-xl font-semibold text-black-01 text-center absolute top-4 end-2 w-1/2"
+            >
+              Limited time, unlimited style!
+            </p>
+          </ng-template>
         </owl-carousel-o>
       </div>
     </div>
