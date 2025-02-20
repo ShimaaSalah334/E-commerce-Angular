@@ -29,8 +29,7 @@ export class LoginComponent {
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
-    autoplay: false,
-
+    autoplay: true,
     dots: true,
     navSpeed: 700,
     navText: ['', ''],
